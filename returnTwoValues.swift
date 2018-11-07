@@ -3,7 +3,8 @@ var player : [String : String] = [:]
 player["player1"] = "Scissors"
 player["player2"] = "Rock"
 
-func winnerAndLoser(player1: String?, player2: String?) -> (winner:String, loser:String){
+//We could use our wildcard _ to omite a paramenter's label >> label player1: << wont be necessary during the call 
+func winnerAndLoser(_ player1: String?, player2: String?) -> (winner:String, loser:String){
     guard let player1 = player1, let player2 = player2 else {
         return ("NOBODY WON", "NOBODY WON")
     }
@@ -32,7 +33,7 @@ func winnerAndLoser(player1: String?, player2: String?) -> (winner:String, loser
         return (winner, loser)
     
 }
-var winnerAndLoserOfMatch =  winnerAndLoser(player1: player["player1"], player2: player["player2"])
+var winnerAndLoserOfMatch =  winnerAndLoser(player["player1"], player2: player["player2"])
 
 print(winnerAndLoserOfMatch)
 
