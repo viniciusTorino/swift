@@ -1,11 +1,11 @@
 var player : [String : String] = [:] 
 
 player["player1"] = "Scissors"
-player["player2"] = "Rock"
+//player["player2"] = "Rock" << defined using default value 
 
-//We could use our wildcard _ to omite a paramenter's label >> label player1: << wont be necessary during the call 
-func winnerAndLoser(_ player1: String?, player2: String?) -> (winner:String, loser:String){
-    guard let player1 = player1, let player2 = player2 else {
+//omitting player1's label and using default value for player2
+func winnerAndLoser(_ player1: String?, player2 = "Rock") -> (winner:String, loser:String){
+    guard let player1 = player1 else {
         return ("NOBODY WON", "NOBODY WON")
     }
     
@@ -25,15 +25,14 @@ func winnerAndLoser(_ player1: String?, player2: String?) -> (winner:String, los
             winner = "DRAW"
             loser = "DRAW"
         default:
-            //If there isn't any typo .. the only possible output beside our previous is that player2 won , 
-            //so there is not necessary to continue testing it
+            //If there isn't any typo .. the only possible output beside our previous is that player2 won 
             winner = "player2"
             loser = "player1"
     }
         return (winner, loser)
     
 }
-var winnerAndLoserOfMatch =  winnerAndLoser(player["player1"], player2: player["player2"])
+var winnerAndLoserOfMatch =  winnerAndLoser(player["player1"])
 
 print(winnerAndLoserOfMatch)
 
