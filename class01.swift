@@ -13,6 +13,14 @@ class Person {
         self.name = name
         self.age = age
     }
+    init(){
+        self.name = "NOT SET YET"
+        self.age = 0
+    }
+    convenience init(job: String){
+        self.init()
+        self.job = job
+    }
     
     func printPersonName() {
         if let name = self.name {
@@ -33,9 +41,14 @@ vini.printJobStatus()
 vini.job = "Juno Enterprises"
 vini.printJobStatus()
 
+var deh = Person(job: "Honda")
+deh.printPersonName()
+deh.printJobStatus()
 /*
-  PRINTS
-  Vini
-  NOT ESPECIFIED YET
-  Vini works at Juno Enterprises
+    PRINTS
+    Vini
+    NOT ESPECIFIED YET
+    Vini works at Juno Enterprises
+    NOT SET YET
+    NOT SET YET works at Honda
 */
