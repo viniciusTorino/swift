@@ -24,7 +24,8 @@ func winnerAndLoser(player1: String?, player2: String?) -> (winner:String, loser
             winner = "DRAW"
             loser = "DRAW"
         default:
-            //If there isn't any typo .. the only possible output beside our previous ... is that player2 won , so there is not necessary to continue testing it
+            //If there isn't any typo .. the only possible output beside our previous is that player2 won , 
+            //so there is not necessary to continue testing it
             winner = "player2"
             loser = "player1"
     }
